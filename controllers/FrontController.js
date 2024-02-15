@@ -1,5 +1,5 @@
 const UserModel = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const CourseModel = require("../models/course");
 const cloudinary = require("cloudinary").v2;
