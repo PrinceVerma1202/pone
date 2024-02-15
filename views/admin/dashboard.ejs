@@ -1,0 +1,48 @@
+<%- include('../header.ejs')%>
+<div class="mt-5"><center><h2>All Controller Admin View</h2></center></div>
+<div class="container mt-5" >
+    <div class="row mt-5">
+        <table class="table">
+            <tr>
+                <th>S. no</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Status</th>
+                <th>Comment</th> 
+                <th></th>
+                <th>Action</th>
+            </tr>
+            <% i = 1 %>
+            <% c.forEach((aitem)=>{ %>
+                <tr>
+                    <td><%= i++ %></td>
+                    <td><%= aitem.name %></td>
+                    <td><%= aitem.course %></td>
+                    <td><%= aitem.status %></td>
+
+                    <td><form action="/admin/update_status/<%=aitem._id %>" method="post">
+                        <textarea name="comment" class="form-control" ></textarea>
+                        <input type="hidden" name="name" value="<%= aitem.name %>" >
+                        <input type="hidden" name="email"  value="<%= aitem.email %>" >
+
+
+                    </td>
+                    <td>
+                        <button type="submit" name="status" class="btn btn-success" value="approved">Approved</button>
+                        <button type="submit" name="status" class="btn btn-info" value="reject">Reject</button>
+                    </form>
+                    </td>
+
+                    <td>
+                        <a href="/course_view/<%= aitem._id %>" class="btn btn-info">View</a>
+                        <a href="/course_edit/<%= aitem._id %>" class="btn btn-success">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
+                    </td>
+                    
+                </tr>
+           <% }) %>
+           
+        </table>
+    </div>
+</div>
+<%- include('../footer.ejs')%>

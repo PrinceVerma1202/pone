@@ -1,0 +1,45 @@
+<%- include('../header.ejs')%>
+
+<div class="container">
+    <div class="row mt-5">
+        <h1 class="mt-5 text-center" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700;font-style: italic; color: #172550;" >
+            Course-Display
+        </h1>
+        
+        <% if(msg.length >0){ %>
+            <div class="alert alert-success"> <%= msg %> </div>
+        
+        <%} %>
+        
+        <table class="table" >
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <% d.forEach((item)=>{ %>
+                <tr>
+                    <td><%= item._id %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.email %></td>
+                    <td><%= item.phone %></td>
+                    <td class="table-info" ><%= item.status %></td>
+                    <td>
+                        <a href="/course_view/<%= item._id %>" class=" btn-info"><i class="fa-solid fa-eye"></i></a>
+                        <a href="/course_edit/<%= item._id %>" class=" btn-primary"><i class="fa-sharp fa-solid fa-pen-to-square"></i></a>
+                        <!-- <a href="/course_delete/<%= item._id %>" class="btn btn-danger">Delete</a> -->
+            
+                    </td>
+                </tr>
+           <% }) %>
+           
+        </table>
+        
+        <center><a class="btn btn-success" href="../home" role="button">Go Back To Home</a></center>
+    </div>
+</div>
+
+<%- include('../footer.ejs')%>
