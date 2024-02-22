@@ -9,6 +9,8 @@ const AdminController = require('../controllers/AdminController');
 
 route.get('/',FrontController.login)
 route.get('/home',checkUserAuth,FrontController.home)
+route.get('/contact',checkUserAuth,FrontController.contact)
+route.get('/about',checkUserAuth,FrontController.About)
 route.get('/register',FrontController.register)
 route.post('/insertreg',FrontController.insertReg)
 route.post('/vlogin',FrontController.vlogin)

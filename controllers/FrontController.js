@@ -9,6 +9,25 @@ cloudinary.config({
   api_secret: "5CBjwQTBNUUcqUpPub3W-j5DHV4",
 });
 class FrontController {
+
+  static contact = async (req,res)=>{
+    try {
+      const {name, image, email, id} = req.userdata
+      res.render('contact',{n:name, i: image,
+        e: email,})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  static About = async (req,res)=>{
+    try {
+      const {name, image, email, id} = req.userdata
+      res.render('About',{n:name, i: image,
+        e: email,})
+    } catch (error) {
+      console.log(error)
+    }
+  }
   static login = async (req, res) => {
     try {
       res.render("login", {
